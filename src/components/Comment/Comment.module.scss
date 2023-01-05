@@ -1,0 +1,44 @@
+@use '../../assets/global';
+
+.comment-wrap {
+  @extend %common-typography;
+
+  position: absolute;
+  display: flex;
+  width: auto;
+  height: auto;
+  min-height: global.$initial-comment-size - 16px;
+  padding: 8px 14px;
+  background-color: global.$background-color;
+  border-radius: 0 16px 16px;
+  cursor: pointer;
+}
+
+.comment {
+  display: inline-block;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: global.$background-color;
+  border-radius: 10px;
+}
+
+.replies-count {
+  color: global.$text-color;
+  font-size: 12px;
+  font-family: Inter, sans-serif;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+}
+
+.comment-wrap:hover {
+  border-radius: 0 10px 10px;
+
+  .comment {
+    width: 256px;
+    height: auto;
+  }
+}

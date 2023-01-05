@@ -1,0 +1,39 @@
+@use '../../assets/global';
+@use '../../assets/Wiggle.module';
+@use '../../assets/IconButton.module';
+
+.comment-wrap {
+  position: absolute;
+  display: flex;
+  width: auto;
+  height: auto;
+}
+
+.comment {
+  @extend %common-typography;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 284px;
+  height: fit-content;
+  background-color: global.$background-color;
+  border-radius: 0 10px 10px;
+}
+
+.comment-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 14px;
+  border-bottom: solid 1px #444;
+}
+
+.tread {
+  display: flex;
+  box-sizing: border-box;
+  width: inherit;
+  padding: 8px 14px;
+}

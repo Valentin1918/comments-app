@@ -1,0 +1,45 @@
+$background-color: #2c2c2c;
+$text-color: #999;
+$text-dark-color: #999999a6;
+$text-active-color: #0c8ce9;
+$common-light-color: white;
+$initial-comment-size: 28px;
+$common-font: inter, sans-serif;
+
+%common-typography {
+  color: $common-light-color;
+  font-size: 16px;
+  font-family: $common-font;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+}
+
+:root {
+  --rgb-color: 153, 153, 153;
+  --rgb-accent: 12, 140, 233;
+  --rgb-background: 44, 44, 44;
+
+  .MuiTooltip-tooltip {
+    background-color: $background-color;
+  }
+
+  .MuiTooltip-arrow {
+    color: $background-color;
+  }
+
+  .MuiDialog-paper {
+    width: 400px;
+    background-color: $background-color;
+  }
+
+  .MuiDialogTitle-root {
+    color: $common-light-color;
+    font-family: $common-font;
+  }
+
+  .MuiDialogContentText-root {
+    color: $text-color;
+    font-weight: 100;
+    font-family: $common-font;
+  }
+}

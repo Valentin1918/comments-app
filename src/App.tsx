@@ -1,24 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getComments, initiateComment, clearWarned } from './redux/slices';
+import { Comment, CommentDraft, CommentEdit, ResolveSuccessDialog } from './components';
+import styles from './App.module.scss';
 
 function App() {
+  const dispatch = useDispatch();
+  const comments = useSelector(getComments);
+  const [openSuccessModal, setOpenSuccessModal] = useState(false);
+
+  const showSuccessModal = () => {
+    setOpenSuccessModal(true);
+  };
+
+  const closeSuccessModal = () => {
+    setOpenSuccessModal(false);
+  };
+
+  const clickEventListener = (event: MouseEvent) => {
+    dispatch(initiateComment({ x: event.x, y: event.y }));
+    setTimeout(() => dispatch(clearWarned()), 600);
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', clickEventListener);
+    return () => document.removeEventListener('click', clickEventListener);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.wrap}>
+      {Object.entries(comments).map(([commentId, commentProps]) => {
+        if (commentProps.status === 'resolved') {
+          return null;
+        }
+
+        if (commentProps.status === 'draft') {
+          return <CommentDraft key={commentId} commentId={commentId} {...commentProps} />;
+        }
+
+        if (commentProps.status === 'edit') {
+          return (
+            <CommentEdit key={commentId} commentId={commentId} {...commentProps} showSuccessModal={showSuccessModal} />
+          );
+        }
+
+        return <Comment key={commentId} commentId={commentId} {...commentProps} />;
+      })}
+
+      <ResolveSuccessDialog open={openSuccessModal} handleClose={closeSuccessModal} />
     </div>
   );
 }

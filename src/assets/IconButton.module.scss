@@ -1,0 +1,31 @@
+@use './global';
+
+.icon-button {
+  color: global.$text-dark-color;
+  cursor: pointer;
+
+  &.disabled {
+    color: global.$text-dark-color;
+    cursor: default;
+
+    &:active {
+      color: global.$text-dark-color;
+    }
+
+    &:hover:not(:active) {
+      color: global.$text-dark-color;
+    }
+  }
+
+  &.active {
+    color: global.$text-active-color;
+  }
+
+  &:active {
+    color: global.$text-active-color;
+  }
+
+  &:hover:not(:active) {
+    color: global.$text-color;
+  }
+}

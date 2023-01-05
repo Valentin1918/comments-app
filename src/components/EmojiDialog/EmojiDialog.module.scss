@@ -1,0 +1,21 @@
+@use '../../assets/global';
+
+.emoji-dialog :global {
+  .MuiPopover-paper {
+    margin-top: 1px;
+    background: none;
+    border-radius: 10px;
+  }
+
+  #root {
+    background-color: global.$background-color;
+  }
+
+  .--em-rgb-background {
+    background-color: global.$background-color;
+  }
+}
+
+.emoji-picker {
+  background-color: global.$background-color;
+}

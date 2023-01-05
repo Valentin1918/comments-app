@@ -1,0 +1,40 @@
+{
+
+  "extends": [
+    "react-app",
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "semi": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/newline-after-import": 0,
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "import/prefer-default-export": 0,
+    "no-use-before-define": 0,
+    "react/function-component-definition": 0,
+    "prefer-destructuring": 0,
+    "react/require-default-props": 0,
+    "no-undef": 0,
+    "react/jsx-no-constructed-context-values": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-no-useless-fragment": 0,
+    "prefer-exponentiation-operator": 0,
+    "no-restricted-properties": 0,
+    "prefer-template": 0,
+    "no-unused-vars": 0,
+    "no-param-reassign": 0,
+    "react/no-unused-prop-types": 0,
+    "react-hooks/exhaustive-deps": 0,
+    "react/no-array-index-key": 0,
+    "no-restricted-globals": 0,
+    "no-alert": 0
+  }
+}

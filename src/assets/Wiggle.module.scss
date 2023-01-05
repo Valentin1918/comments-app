@@ -1,0 +1,35 @@
+$wiggle-delta-x: -24px;
+$wiggle-delta-x-inverse: calc($wiggle-delta-x * -1);
+$wiggle-rotation: -1deg;
+$wiggle-rotation-inverse: calc($wiggle-rotation * -1);
+
+.wiggle {
+  transform-origin: center;
+  animation: wiggle 0.6s linear;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate($wiggle-delta-x) rotate($wiggle-rotation);
+  }
+
+  40% {
+    transform: translate($wiggle-delta-x-inverse) rotate($wiggle-rotation-inverse);
+  }
+
+  60% {
+    transform: translate($wiggle-delta-x) rotate($wiggle-rotation);
+  }
+
+  80% {
+    transform: translate($wiggle-delta-x-inverse) rotate($wiggle-rotation-inverse);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
